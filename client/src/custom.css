@@ -1,0 +1,108 @@
+/* Text Styling */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Raleway", sans-serif;
+}
+
+p {
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+
+}
+
+#title-input,
+#issueDescription-input,
+#replicationInstructions-input {
+  font-family: "Raleway, sans-serif";
+  font-size: 20px;
+}
+
+.navbar {
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+}
+
+input::placeholder {
+  font-family: "Raleway", sans-serif;
+}
+textarea::placeholder {
+  font-family: "Raleway", sans-serif;
+}
+/* Background Color */
+body {
+  background: linear-gradient(90deg, rgba(225,225,255,255) 0%, rgba(225,225,225,255) 35%, rgba(205,205,215,255) 100%);
+}
+
+/* Button Styling */
+#createAccount {
+  background-color: #5575ff;
+  font-family: "Raleway", sans-serif;
+  border-color: #c3c3ff;
+}
+
+#createAccount:hover {
+  background-color: #2f55ff;
+  font-family: "Raleway", sans-serif;
+  border-color: #c3c3ff;
+}
+
+.btn-primary {
+  background-color: #009933;
+}
+.btn-primary:focus {
+  background-color: #009933;
+}
+.btn-primary:hover {
+  background-color: #006622;
+}
+
+#submitReport:active {
+  background-color: #006622;
+}
+#search:active {
+  background-color: #006622;
+}
+#update:active {
+  background-color: #006622;
+}
+#makeComplete:active {
+  background-color: #006622;
+}
+#postMessage:active {
+  background-color: #006622;
+}
+
+.btn-danger {
+  background-color: #ff3333;
+}
+
+.btn-danger:hover {
+  background-color: #cc0000;
+}
+
+#removeVote {
+  background-color: red;
+}
+#login {
+  background-color: #2fca2f;
+  border-color: #c3dac3;
+}
+
+#login:hover {
+  background-color: #0faf0f;
+  border-color: #c3dac3;
+}
+
+.btn {
+  border-radius: 5px;
+  font-family: "Raleway", sans-serif;
+}
+
+/* Report Form Styling */
+#reportForm {
+  width: 50em;
+  padding: 30px;
+}
