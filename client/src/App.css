@@ -1,38 +1,111 @@
-.App {
-  text-align: center;
+/* Text Styling */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Raleway", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+p {
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#title-input,
+#issueDescription-input,
+#replicationInstructions-input {
+  font-family: "Raleway, sans-serif";
+  font-size: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.navbar {
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+input::placeholder {
+  font-family: "Raleway", sans-serif;
+}
+textarea::placeholder {
+  font-family: "Raleway", sans-serif;
+}
+/* Background Color */
+body {
+  background: linear-gradient(90deg, rgba(225,225,255,255) 0%, rgba(225,225,225,255) 35%, rgba(205,205,225,255) 100%);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Button Styling */
+#createAccount {
+  background-color: #4c6cfc;
+  font-family: "Raleway", sans-serif;
+  border-color: #4c6cfc;
+  color: #ffffff;
 }
+
+#createAccount:hover, #login:hover, #logout:hover, #search:hover, #update:hover, #postMessage:hover, #makeComplete:hover{
+    opacity: .9;
+}
+
+#createAccount:active, #login:active, #logout:active, #search:active, #update:active, #postMessage:active, #makeComplete:active  {
+    opacity: .8;
+}
+
+#title, #issueD, #replicationI {
+    font-size: 1.3em;
+}
+
+#login, #submit{
+    background-color: #2fca2f;
+    border-color: #2fca2f;
+}
+  
+#logout{
+    background-color: #ff3333;
+    border-color: #ff3333;
+}
+
+#search{
+    background-color: #7091fd;
+    border-color: #7091fd;
+}
+
+
+#update{
+    background-color: #4a9bf7;
+    border-color: #4a9bf7;
+}
+
+#postMessage, #makeComplete {
+    background-color: #11b447;
+    border-color: #11b447;
+}
+
+.btn-danger {
+  background-color: #ff3333;
+}
+
+.btn-danger:hover {
+  background-color: #cc0000;
+}
+
+#removeVote {
+  background-color: #ff3333;
+}
+
+.btn {
+  border-radius: 5px;
+  font-family: "Raleway", sans-serif;
+}
+
+/* Report Form Styling */
+#reportForm {
+  width: 50em;
+  padding: 30px;
+}
+
+.reportListBtn{
+    width: 26em;
+}
+
