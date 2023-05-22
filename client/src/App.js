@@ -20,7 +20,7 @@ import ReportForm from "./components/ReportForm";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  const SERVER_URL = "http://ec2-18-208-151-222.compute-1.amazonaws.com:8080";
+  const SERVER_URL = "http://ec2-54-208-34-62.compute-1.amazonaws.com:8080";
 
   let currentUserData = localStorage.getItem("userData");
 
@@ -31,7 +31,7 @@ function App() {
   const [user, setUser] = useState(currentUserData);
 
   let admin = false;
-  
+
   if (user) {
     admin = user.userData.authorities.includes("ADMIN");
   }
