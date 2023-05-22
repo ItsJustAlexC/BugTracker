@@ -25,11 +25,9 @@ function CreateAccount({SERVER_URL}) {
         })
         .then((response) => {
             if(response.ok) {
-                console.log(response);
                 navigate("/login");
             }
             else {
-                console.log(response);
                 setErr("Failed to create account.");
             }
         });

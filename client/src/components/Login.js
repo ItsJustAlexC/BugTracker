@@ -19,11 +19,9 @@ function Login({ setUser, SERVER_URL }) {
     })
       .then((response) => {
         if (response.status === 200) {
-          console.log(response);
           return response.json();
         } else {
-          console.log(response);
-          setErr("Username and/or password is incorrect.");
+          setErr("Username and/or password is incorrect");
         }
       })
       .then((jwtContainer) => {
@@ -69,8 +67,10 @@ function Login({ setUser, SERVER_URL }) {
             <input type="password" className="form-control mb-2" id="password" onChange={handleChange} value={loginData.password}/>
           </div>
 
-          <div className="d-flex flex-column justify-content-center">
-            <p className="text-danger font-italic text-center mt-3">{err}</p>
+          <div className="justify-content-center text-wrap">
+            <p className="text-danger font-italic mt-3 text-center" style={{ maxWidth: "200px", wordBreak: "break-word" }}>{err}</p>
+          </div>
+          <div className="d-flex  justify-content-center">
             <button id="login" type="submit" className="btn btn-primary ml-auto mr-auto"> Login </button>
           </div>
         </form>

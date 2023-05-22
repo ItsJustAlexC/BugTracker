@@ -10,7 +10,7 @@ function ViewFilter(props) {
     }
 
     return (
-        <div className="col text-center m-3 p-3">
+        <div className="col text-center m-3 p-3 bg-light rounded shadow">
             <h3>Filter Reports</h3>
             {
                 admin ?

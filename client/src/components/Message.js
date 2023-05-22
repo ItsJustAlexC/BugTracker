@@ -17,7 +17,6 @@ function Message({message, SERVER_URL, getMessages}) {
             }
         })
         .then((response) => {
-            console.log(response);
             getMessages();
         })
     }

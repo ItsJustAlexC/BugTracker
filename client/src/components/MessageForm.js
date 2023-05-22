@@ -61,7 +61,7 @@ function MessageForm({ report, SERVER_URL, getMessages }) {
       />
       <div className="w-100 d-flex justify-content-center mt-3">
         <button id="postMessage" type="submit" className="btn btn-primary">
-          Post Message
+          Post
         </button>
       </div>
 

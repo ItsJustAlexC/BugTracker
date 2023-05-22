@@ -16,11 +16,9 @@ function UserPermission({ username, role, SERVER_URL }) {
       },
     }).then((response) => {
       if (response.status === 204) {
-        console.log(response);
         setMessage("Updating...");
         window.location.reload();
       } else {
-        console.log(response);
         setMessage("Update Failed");
       }
     });

@@ -179,8 +179,8 @@ function ViewBugs({SERVER_URL}) {
     useEffect(sortView, [loaded]);
 
     return (
-        <div className="container-fluid row d-flex justify-content-center">
-            <div className="col-2 mr-5">
+        <div className="container d-flex justify-content-center">
+            <div className="mt-5" style={{maxWidth:'15em'}}>
                 {
                     context ?
                     <ViewFilter
@@ -199,8 +199,9 @@ function ViewBugs({SERVER_URL}) {
                 }
             </div>
             
-            <div className="col-5 mr-5">
-                <div className="text-center">
+            <div>
+                <div className="text-center mt-5 m-5"style={{maxWidth:'35em'}}>
+                    <h3>Report Details</h3>
                     <ReportDetails
                         report = {report}
                         refresh = {refresh}
@@ -209,11 +210,11 @@ function ViewBugs({SERVER_URL}) {
                 </div>
             </div>
             
-            <div className="col text-center p-3 col-3">
+            <div className='mt-5 text-center' style={{maxWidth:'20em'}}>
                 <h3>Reports List</h3>
                 <SearchBar search={search}/>
-                {reports.length === 0 ? <div>{ loaded ? "No Reports Found" : "Loading..."}
-                </div> :
+                {reports.length === 0 ? <p className="container text-center">{ loaded ? "No Reports Found" : "Loading..."}
+                </p> :
                 reports.map((r) => {
                     return <div key = {r.reportId} className={hidden.includes(r) ? "d-none" : ""}>
                         <ReportListItem

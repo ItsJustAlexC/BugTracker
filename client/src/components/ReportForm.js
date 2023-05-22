@@ -62,8 +62,8 @@ export default function ReportForm({ SERVER_URL }) {
   };
 
   return (
-    <div className="container-fluid row d-flex justify-content-center">
-      <div id="reportForm">
+    <div className="container d-flex justify-content-center">
+      <div id="reportForm" className="bg-light rounded shadow mt-4">
         <h1>Add A Bug Report</h1>
         <form
           onSubmit={(event) => {
@@ -123,18 +123,18 @@ export default function ReportForm({ SERVER_URL }) {
           </div>
 
           <div className="d-flex justify-content-center w-100">
-            <div className="d-flex m-2 flex-column justify-content-center w-25">
+            <div className="d-flex m-2 flex-column justify-content-center me-4">
               <button className="btn btn-danger" onClick={() => cancelAdd()}>
-                Cancel Report
+                Cancel
               </button>
             </div>
-            <div className="d-flex m-2 flex-column justify-content-center w-25">
+            <div className="d-flex m-2 flex-column justify-content-center">
               <button
                 id="submitReport"
                 type="submit"
-                className="btn btn-primary "
+                className="btn btn-primary"
               >
-                Submit Report
+                Submit
               </button>
             </div>
           </div>

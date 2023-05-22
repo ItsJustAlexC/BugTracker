@@ -106,6 +106,10 @@ body {
 }
 
 .reportListBtn{
-    width: 26em;
+    width: 20rem;
 }
 
+.report-title{
+  font-weight: bold;
+  font-size: 1.5rem;
+}

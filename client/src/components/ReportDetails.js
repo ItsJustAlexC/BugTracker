@@ -31,11 +31,8 @@ function ReportDetails({ report, refresh, SERVER_URL }) {
       },
     })
       .then((response) => {
-        if (response.status == 200) {
-          console.log(response);
+        if (response.status === 200) {
           return response.json();
-        } else {
-          console.log(response);
         }
       })
       .then(setVoted);
@@ -50,7 +47,7 @@ function ReportDetails({ report, refresh, SERVER_URL }) {
         Authorization: `Bearer ${context.token}`,
       },
     }).then((response) => {
-      console.log(response);
+
       refresh();
     });
   };
@@ -100,8 +97,7 @@ function ReportDetails({ report, refresh, SERVER_URL }) {
 
     if(!report) {
         return (
-            <div className="col m-3 p-3">
-                <h3>Report Details</h3>
+            <div className="">
                 <p>Select a report for more details.</p>
             </div>
         )
@@ -110,7 +106,6 @@ function ReportDetails({ report, refresh, SERVER_URL }) {
   if (!report) {
     return (
         <div className="col text-center m-3 p-3">
-            <h3>Report Details</h3>
             <div className="p-3 text-left bg-white border overflow-hidden">
                 <div className="d-flex">
                     <div className="mr-auto w-50 overflow-hidden">
@@ -187,109 +182,106 @@ function ReportDetails({ report, refresh, SERVER_URL }) {
   }
 
   return (
-    <div className="col text-center m-3 p-3">
-      <h3>Report Details</h3>
-      <div className="p-3 text-left bg-white border overflow-hidden shadow">
-        <div className="d-flex">
-          <h5 className="mr-auto w-75 overflow-hidden">{report.title}</h5>
+    <div className="container d-flex">
+      <div className="col text-center">
+        <div className="p-3 text-left bg-white rounded overflow-hidden shadow">
+          <h5 className="overflow-hidden text-center report-title">{report.title}</h5>
+          <div className="justify-content-between">
+            {report.completionStatus ? (
+              <p className="text-success text-center">Resolved</p>
+            ) : (
+              <p className="text-danger ">Unresolved</p>
+            )}
 
-          <p style={{fontSize:"1rem"}} className="m-1 text-center">Votes: {report.voteCount}</p>
-          
-          <div>
-            {context ? (
-              voted ? (
+            {auth ? (
+              report.completionStatus ? (
                 <button
                   className="btn btn-danger btn-sm m-1"
                   type="button"
-                  onClick={removeVote}
+                  onClick={() => updateStatus(false)}
                 >
-                  Remove Vote
+                  Mark as Unresolved
                 </button>
               ) : (
                 <button
+                  id="makeComplete"
                   className="btn btn-primary btn-sm m-1"
                   type="button"
-                  onClick={submitVote}
+                  onClick={() => updateStatus(true)}
                 >
-                  Vote
+                  Mark as Resolved
                 </button>
               )
             ) : (
               <></>
             )}
           </div>
+
+          <p>
+            By:{" "}
+            <span className="text-info text-uppercase">
+              <span className="text-truncate">{report.authorUsername}</span>
+            </span>{" "} <span className="fs-6">| Posted: {new Date(report.postDate).toLocaleDateString("en-US")}</span>
+          </p>
+
+          <div className="border p-1 rounded">
+            <h6>Issue Description</h6>
+            <p className="overflow-hidden">{report.issueDescription}</p>
+          </div>
           
-        </div>
-
-        <div className="d-flex justify-content-between">
-          {report.completionStatus ? (
-            <p className="text-success">Resolved</p>
-          ) : (
-            <p className="text-danger">Unresolved</p>
-          )}
-
-          {auth ? (
-            report.completionStatus ? (
-              <button
-                className="btn btn-danger btn-sm m-1"
-                type="button"
-                onClick={() => updateStatus(false)}
-              >
-                Mark as Unresolved
-              </button>
-            ) : (
-              <button
-                id="makeComplete"
-                className="btn btn-primary btn-sm m-1"
-                type="button"
-                onClick={() => updateStatus(true)}
-              >
-                Mark as Resolved
-              </button>
-            )
+          <div className="mt-2 border p-1 rounded">
+            <h6>Replication Instructions</h6>
+            <p className="overflow-hidden">{report.replicationInstructions}</p>
+          </div>
+          <div className="text-end">
+          Votes: {report.voteCount}
+          {context ? (
+                voted ? (
+                  <button
+                    className="btn btn-danger btn-sm m-1 me-1"
+                    type="button"
+                    onClick={removeVote}
+                  >
+                    Remove
+                  </button>
+                ) : (
+                  <button
+                    className="btn btn-primary btn-sm m-1 me-1"
+                    type="button"
+                    onClick={submitVote}
+                  >
+                    Vote
+                  </button>
+                )
+              ) : (
+                <></>
+              )}
+          </div>
+            {context ? (
+            <MessageForm
+              report={report}
+              SERVER_URL={SERVER_URL}
+              getMessages={getMessages}
+            />
           ) : (
             <></>
           )}
+          <h4 className="text-center mt-5">Messages</h4>
+          {messages.length > 0 ? (
+            messages.map((message) => {
+              return (
+                <Message
+                  key={message.messageId}
+                  message={message}
+                  SERVER_URL={SERVER_URL}
+                  getMessages={getMessages}
+                />
+              );
+            })
+          ) : (
+            <p className="text-center">No current messages</p>
+          )}
         </div>
-
-        <p>
-          By:{" "}
-          <span className="d-flex text-info text-uppercase">
-            <span className="text-truncate">{report.authorUsername}</span>
-          </span>{" "}
-          | Posted: {new Date(report.postDate).toLocaleDateString("en-US")}
-        </p>
-
-        <h6>Issue Description</h6>
-        <p className="w-100 overflow-hidden">{report.issueDescription}</p>
-
-        <h6>Replication Instructions</h6>
-        <p className="w-100 overflow-hidden">{report.replicationInstructions}</p>
-
-        <h4 className="text-center mt-5">Messages</h4>
-        {messages.length > 0 ? (
-          messages.map((message) => {
-            return (
-              <Message
-                key={message.messageId}
-                message={message}
-                SERVER_URL={SERVER_URL}
-                getMessages={getMessages}
-              />
-            );
-          })
-        ) : (
-          <p className="text-center">No current messages.</p>
-        )}
-        {context ? (
-          <MessageForm
-            report={report}
-            SERVER_URL={SERVER_URL}
-            getMessages={getMessages}
-          />
-        ) : (
-          <></>
-        )}
       </div>
     </div>
   );
