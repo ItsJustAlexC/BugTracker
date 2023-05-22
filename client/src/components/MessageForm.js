@@ -36,13 +36,11 @@ function MessageForm({ report, SERVER_URL, getMessages }) {
       },
       body: JSON.stringify(newMessage),
     }).then((result) => {
-      if (result.status === 201) {
-        console.log(result);
+      if (result.status === 201) {;
         setMessage(clearMessage);
         setErr([]);
         getMessages();
       } else {
-        console.log(result);
         result.json().then((errors) => {
           setErr(errors);
         });

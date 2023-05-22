@@ -6,7 +6,6 @@ function ReportListItem({report, setReport}) {
             {report.title} <br/> 
             <span className="text-uppercase text-info">{report.authorUsername}</span> | {new Date(report.postDate).toLocaleDateString("en-US")}
         </button>
-        
     );
 }
 

@@ -46,8 +46,7 @@ function ReportDetails({ report, refresh, SERVER_URL }) {
       headers: {
         Authorization: `Bearer ${context.token}`,
       },
-    }).then((response) => {
-
+    }).then(() => {
       refresh();
     });
   };
@@ -59,7 +58,6 @@ function ReportDetails({ report, refresh, SERVER_URL }) {
         Authorization: `Bearer ${context.token}`,
       },
     }).then((response) => {
-      console.log(response);
       refresh();
     });
   };
@@ -84,7 +82,6 @@ function ReportDetails({ report, refresh, SERVER_URL }) {
 
         fetch(SERVER_URL + "/api/messages/" + report.reportId)
         .then((response) => {
-            console.log(response);
             return response.json();
         })
         .then((json) => {

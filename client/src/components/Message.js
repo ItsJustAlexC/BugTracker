@@ -16,7 +16,7 @@ function Message({message, SERVER_URL, getMessages}) {
                 "Authorization": `Bearer ${context.token}`
             }
         })
-        .then((response) => {
+        .then(() => {
             getMessages();
         })
     }

@@ -220,10 +220,11 @@ function ViewBugs({SERVER_URL}) {
                         <ReportListItem
                             report = {r}
                             setReport = {setReport}
-                            />
+                        />
                 </div>
                 })}
             </div>
+            
         </div>
     );
 }
